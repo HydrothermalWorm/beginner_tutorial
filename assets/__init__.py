@@ -15,8 +15,6 @@ import assets.packages.gif_pygame.transform as transform
 Sprites from Ansimuz
 https://ansimuz.itch.io/gothicvania-patreon-collection
 '''
-player_img = 'assets/images/gothic-hero-idle.gif'
-enemy_img = 'assets/images/demon-idle.gif'
 
 # Assigning colors (RGB)
 BLACK = pygame.Color(  0,   0,   0)
@@ -29,12 +27,6 @@ RED   = pygame.Color(255,   0,   0)
 # Set frames per second
 framerate = 60
 FPS = pygame.time.Clock() # instantiates an object called FPS with the class pygame.time.Clock()
-
-# Create the display screen
-SCREEN_WIDTH = 800
-SCREEN_HEIGHT = 600
-DISPLAY_SURF = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT)) # width, height in px
-pygame.display.set_caption("The world's greatest game!") # game window caption
 
 def move_sprites(sprite_group):
     for entity in sprite_group:

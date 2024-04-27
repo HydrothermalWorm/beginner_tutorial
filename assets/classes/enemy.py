@@ -24,7 +24,7 @@ class Enemy(pygame.sprite.Sprite):  # Inheriting from the pygame sprite class
     def move(self):
         self.y = self.movement_speed
         if self.rect.top == 0 or self.rect.bottom > self.screen_height:
-            self.rect.centerx = (random.randint(self.rect.width, self.screen_width-2*self.rect.width))
+            self.rect.centerx = (random.randint(0, self.screen_width))
             self.rect.top = 0
             self.x = random.randint(-self.movement_speed, self.movement_speed)
         self.rect.move_ip(self.x, self.y)

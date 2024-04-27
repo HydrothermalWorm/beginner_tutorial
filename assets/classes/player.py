@@ -10,7 +10,7 @@ class Player(pygame.sprite.Sprite):
         
         self.image = gif_pygame.load(img) # Load the image to use for the character
         self.rect = self.image.get_rect() # Get the rectangle bounding the character image
-        self.rect.center = (160, 520) # Place the character
+        self.rect.center = (0.5*self.screen_width-0.5*self.rect.width, 0.9*self.screen_height-0.5*self.rect.height) # Place the character
 
         self.movement_speed = movement_speed
 
