@@ -9,17 +9,16 @@ os.environ['SDL_VIDEO_WINDOW_CENTERED'] = '1'
 # Initialize pygame engine
 pygame.init()
 
-
-
+# Sprites
+player_img = 'assets/images/gothic-hero-idle.gif'
 player = Player(DISPLAY_SURF, player_img, 5)
+
+enemy_img = 'assets/images/demon-idle.gif'
 enemy = Enemy(DISPLAY_SURF, enemy_img, 5)
-
 number_of_enemies: int = 1
-
 enemy_group = pygame.sprite.Group()
 for i in range(number_of_enemies):
     enemy_group = pygame.sprite.Group(enemy)
-
 
 # Game Loop
 while True:
