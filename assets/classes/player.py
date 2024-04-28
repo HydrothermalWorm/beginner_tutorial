@@ -1,5 +1,6 @@
 import pygame
 from ..packages.gif_pygame import gif_pygame
+import random
 
 class Player(pygame.sprite.Sprite):
     def __init__(self, display_surf, img, movement_speed) -> None:  # The constructor method
@@ -13,6 +14,7 @@ class Player(pygame.sprite.Sprite):
         self.rect.center = (0.5*self.screen_width-0.5*self.rect.width, 0.9*self.screen_height-0.5*self.rect.height) # Place the character
 
         self.movement_speed = movement_speed
+        self.last_key = None
 
     def move(self):
         pressed_keys = pygame.key.get_pressed()
@@ -31,7 +33,15 @@ class Player(pygame.sprite.Sprite):
         self.rect.move_ip(vector)
 
     def draw(self): # draw sprite to display, passing the image and rectangle as arguments
-        if self.x < 0:
-            self.display_surf.blit(pygame.transform.flip(self.image.blit_ready(), True, False), self.rect)
+        pressed_key = pygame.key.get_pressed()
+        released_key = pygame.key.get_just_released()
+        if pressed_key[pygame.K_a] or released_key[pygame.K_a]:
+            self.last_key = pygame.K_a
+        elif pressed_key[pygame.K_d] or released_key[pygame.K_d]:
+            self.last_key = pygame.K_d
+
+        if self.last_key == pygame.K_a:
+            self.display_surf.blit(pygame.transform.flip(self.image.blit_ready(), 
+                                                         True, False), self.rect)
         else:
             self.display_surf.blit(self.image.blit_ready(), self.rect)
